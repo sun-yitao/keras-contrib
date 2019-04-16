@@ -106,7 +106,9 @@ def _shortcut(input_feature, residual, conv_name_base=None, bn_name_base=None):
     input_shape = K.int_shape(input_feature)
     residual_shape = K.int_shape(residual)
     stride_width = int(round(input_shape[ROW_AXIS] / residual_shape[ROW_AXIS]))
+    print(f'stride_width: {input_shape[ROW_AXIS]} / {residual_shape[ROW_AXIS]} = {stride_width}')
     stride_height = int(round(input_shape[COL_AXIS] / residual_shape[COL_AXIS]))
+    print(f'stride_height: {input_shape[COL_AXIS]} / {residual_shape[COL_AXIS]} = {stride_height}')
     equal_channels = input_shape[CHANNEL_AXIS] == residual_shape[CHANNEL_AXIS]
 
     shortcut = input_feature
